@@ -24,7 +24,8 @@ namespace _158BTaxi
 
             for(int i = n - 1; i >= 0; i--)
             {
-                if (left == i) { result++; break; }
+                if (left > i) { break; }
+                if (left == i) { result++; break;  }
 
                 if (groups[i] == 4)
                 {
@@ -63,8 +64,8 @@ namespace _158BTaxi
                 else if(groups[i] == 1)
                 {
                     if (left >= i) { result++; break; }
-                    
-                    for(int j = left; j < left + 4; j++)
+                    int c = left + 4;
+                    for(int j = left; j < c; j++)
                     {
 
                         if (left >= i) { result++; break; }
@@ -78,9 +79,14 @@ namespace _158BTaxi
                             left++;
                             
                         }
+
+                        if(j == c - 1)
+                        {
+                            result++;
+                        }
                     }
 
-                    result++;
+                    
                 }
             }
 
